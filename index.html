@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website Title</title>
+    <meta name="description" content="Share your thoughts, quotes, or comments on 'Say Hi.' Join the conversation and leave your mark on this interactive platform. Discover a unique blend of creativity and expression. Engage with a diverse community and contribute to the ever-growing collection of quotes. Say Hi, and let your words resonate in this dynamic space!">
+    <title>RandomProject</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- Your custom styles -->
-    <link rel="stylesheet" href="styles.css"> <!-- Add your custom styles if needed -->
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -44,6 +44,7 @@
             cursor: pointer;
             transition: all 450ms ease-in-out;
             position: relative; /* Add position relative for absolute positioning */
+            margin: 0 auto; /* Center the button */
         }
 
         .sparkle {
@@ -92,14 +93,86 @@
         #quotes li {
             margin-bottom: 10px;
         }
-    </style>
-</head>
-<body class="bg-light">
-    <header class="bg-dark text-white text-center py-3 rounded">
-        <h1>Say Hi</h1>
-    </header>
 
+        @property --rotate {
+            syntax: "<angle>";
+            initial-value: 132deg;
+            inherits: false;
+        }
+
+        :root {
+            --card-height: 20vh;
+            --card-width: calc(var(--card-height) / 1);
+        }
+
+        .card {
+            background: #191c29;
+            width: var(--card-width);
+            height: var(--card-height);
+            padding: 3px;
+            position: relative;
+            border-radius: 6px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            display: flex;
+            font-size: 1.5em;
+            color: rgb(88 199 250 / 0%);
+            cursor: pointer;
+            font-family: cursive;
+            margin: 0 auto; /* Center the card */
+        }
+
+        .card:hover {
+            color: rgb(88 199 250 / 100%);
+            transition: color 1s;
+        }
+
+        .card:hover:before, .card:hover:after {
+            animation: none;
+            opacity: 0;
+        }
+
+        .card::before {
+            content: "";
+            width: 104%;
+            height: 102%;
+            border-radius: 8px;
+            background-image: linear-gradient(
+                var(--rotate)
+                , #5ddcff, #3c67e3 43%, #4e00c2);
+            position: absolute;
+            z-index: -1;
+            top: -1%;
+            left: -2%;
+            animation: spin 2.5s linear infinite;
+        }
+
+        .card::after {
+            position: absolute;
+            content: "";
+            top: calc(var(--card-height) / 6);
+            left: 0;
+            right: 0;
+            z-index: -1;
+            height: 100%;
+            width: 100%;
+            margin: 0 auto;
+            transform: scale(0.8);
+            filter: blur(calc(var(--card-height) / 6));
+            background-image: linear-gradient(
+                var(--rotate)
+                , #5ddcff, #3c67e3 43%, #4e00c2);
+            opacity: 1;
+            transition: opacity .5s;
+            animation: spin 2.5s linear infinite;
+        }
+
+    </style>
     <main class="sans">
+        <div class="card">
+        Say Hi
+        </div>
         <p>If you are here, you probably found this site or clicked a link. Leave a quote, comment, or really anything.</p>
         <form id="quote-form" class="col-md-6 mx-auto">
             <div class="form-group">
@@ -133,8 +206,9 @@
             <button type="button" id="sort-order-btn" class="btn btn-primary mt-3">sort by date</button>
             <ul id="quotes" class="list-unstyled"></ul>
         </div>
-        
     </main>
+
+
 
     <!-- Bootstrap JS and Popper.js -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
