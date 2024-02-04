@@ -123,5 +123,7 @@ function clearQuotes() {
 
 loadQuotes();
 
+
+
 document.getElementById('add-quote-btn').addEventListener('click', addQuote);
 document.getElementById('sort-order-btn').addEventListener('click', toggleSortOrder);

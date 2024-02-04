@@ -18,8 +18,16 @@
         </div>
         <p>If you are here, you probably found this site or clicked a link. Leave a quote, comment, or really anything.</p>
         <form id="quote-form" class="col-md-6 mx-auto">
-            <!-- ... your form content ... -->
+            <div class="form-group">
+                <label for="name-input">Enter your name:</label>
+                <input type="text" class="form-control" id="name-input" required>
+            </div>
+            <div class="form-group">
+                <label for="quote-input">Enter your message:</label>
+                <input type="text" class="form-control" id="quote-input" required>
+            </div>
         </form>
+        
 
         <!-- reCAPTCHA widget -->
         <div class="g-recaptcha mx-auto" data-sitekey="6Le3Vl8pAAAAADPtB98bACmJFAFzK8FWgeXv36I9"></div>
