@@ -1,0 +1,258 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+header {
+    background-color: #5e5e5e;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+}
+
+main {
+    margin-top: 20px;
+}
+
+#quote-form {
+    margin-top: 20px;
+}
+
+.btn {
+    border: none;
+    width: 15em;
+    height: 5em;
+    border-radius: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: #1C1A1C;
+    cursor: pointer;
+    transition: all 450ms ease-in-out;
+    position: relative;
+    margin: 0 auto;
+}
+
+.sparkle {
+    fill: #AAAAAA;
+    transition: all 800ms ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.text {
+    font-weight: 600;
+    color: #AAAAAA;
+    font-size: medium;
+}
+
+.btn:hover {
+    background: linear-gradient(0deg, #A47CF3, #683FEA);
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+    inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+    0px 0px 180px 0px #9917FF;
+    transform: translateY(-2px);
+}
+
+.btn:hover .text {
+    color: white;
+}
+
+.btn:hover .sparkle {
+    fill: white;
+    transform: scale(1.2);
+}
+
+#banned-word-message,
+#error-message,
+#banned-word-notification {
+    margin-top: 20px;
+}
+
+#quote-list {
+    margin-top: 20px;
+}
+
+#quotes li {
+    margin-bottom: 10px;
+}
+
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+}
+
+:root {
+    --card-height: 20vh;
+    --card-width: calc(var(--card-height) / 1);
+}
+
+.card {
+    background: #191c29;
+    width: var(--card-width);
+    height: var(--card-height);
+    padding: 3px;
+    position: relative;
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    font-size: 1.5em;
+    color: rgb(88 199 250 / 0%);
+    cursor: pointer;
+    font-family: cursive;
+    margin: 0 auto;
+}
+
+.card:hover {
+    color: rgb(88 199 250 / 100%);
+    transition: color 1s;
+}
+
+.card:hover:before, .card:hover:after {
+    animation: none;
+    opacity: 0;
+}
+
+.card::before {
+    content: "";
+    width: 104%;
+    height: 102%;
+    border-radius: 8px;
+    background-image: linear-gradient(
+        var(--rotate),
+        #5ddcff, #3c67e3 43%, #4e00c2
+    );
+    position: absolute;
+    z-index: -1;
+    top: -1%;
+    left: -2%;
+    animation: spin 2.5s linear infinite;
+}
+
+.card::after {
+    position: absolute;
+    content: "";
+    top: calc(var(--card-height) / 6);
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    transform: scale(0.8);
+    filter: blur(calc(var(--card-height) / 6));
+    background-image: linear-gradient(
+        var(--rotate),
+        #5ddcff, #3c67e3 43%, #4e00c2
+    );
+    opacity: 1;
+    transition: opacity .5s;
+    animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        --rotate: 0deg;
+    }
+    100% {
+        --rotate: 360deg;
+    }
+}
+
+a {
+    color: #212534;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-top: 2rem;
+}
+
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1);
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55);
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1);
+    }
+}
+
+.waveWrapper {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+
+.waveWrapperInner {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    bottom: -1px;
+    background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
+}
+
+.bgTop {
+    z-index: 15;
+    opacity: 0.5;
+}
+
+.bgMiddle {
+    z-index: 10;
+    opacity: 0.75;
+}
+
+.bgBottom {
+    z-index: 5;
+}
+
+.wave {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+}
+
+.waveTop {
+    background-size: 50% 100px;
+}
+
+.waveAnimation .waveTop {
+    animation: move-wave 3s;
+    -webkit-animation: move-wave 3s;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+
+.waveMiddle {
+    background-size: 50% 120px;
+}
+
+.waveAnimation .waveMiddle {
+    animation: move_wave 10s linear infinite;
+}
+
+.waveBottom {
+    background-size: 50% 100px;
+}
+
+.waveAnimation .waveBottom {
+    animation: move_wave 15s linear infinite;
+}
