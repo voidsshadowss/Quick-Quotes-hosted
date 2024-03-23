@@ -41,6 +41,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          # Specify the directory where the static content is located
-          target-folder: '.' # Change this to your static content directory if different
