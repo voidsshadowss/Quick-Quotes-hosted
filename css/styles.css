@@ -1,340 +1,246 @@
 body {
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    margin: 20px;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  margin: 20px;
+  background-color: #f4f4f4;
+  animation: fadeIn 1s ease-out; /* Fade in animation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 header {
-    background-color: #5e5e5e;
-    padding: 10px;
-    border-radius: 10px;
-    color: #fff;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  animation: slideInDown 1s ease-out; /* Slide in from top animation */
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 main {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 #quote-form {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .btn {
-    border: none;
-    width: 15em;
-    height: 5em;
-    border-radius: 3em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    background: #1C1A1C;
-    cursor: pointer;
-    transition: all 450ms ease-in-out;
-    position: relative;
-    margin: 0 auto;
+  border: none;
+  width: 15em;
+  height: 5em;
+  border-radius: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background: #1C1A1C;
+  cursor: pointer;
+  transition: all 450ms ease-in-out;
+  position: relative;
+  margin: 0 auto;
+  animation: pulse 2s infinite alternate; /* Button pulse animation */
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
 }
 
 .sparkle {
-    fill: #AAAAAA;
-    transition: all 800ms ease;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  fill: #AAAAAA;
+  transition: all 800ms ease;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .text {
-    font-weight: 600;
-    color: #AAAAAA;
-    font-size: medium;
+  font-weight: 600;
+  color: #AAAAAA;
+  font-size: medium;
 }
 
 .btn:hover {
-    background: linear-gradient(0deg, #A47CF3, #683FEA);
-    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
-    inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
-    0px 0px 0px 4px rgba(255, 255, 255, 0.2),
-    0px 0px 180px 0px #9917FF;
-    transform: translateY(-2px);
+  background: linear-gradient(0deg, #A47CF3, #683FEA);
+  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+  inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+  0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+  0px 0px 180px 0px #9917FF;
+  transform: translateY(-2px);
 }
 
 .btn:hover .text {
-    color: white;
+  color: white;
 }
 
 .btn:hover .sparkle {
-    fill: white;
-    transform: scale(1.2);
+  fill: white;
+  transform: scale(1.2);
 }
 
 #banned-word-message,
 #error-message,
 #banned-word-notification {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 #quote-list {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 #quotes li {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 @property --rotate {
-    syntax: "<angle>";
-    initial-value: 132deg;
-    inherits: false;
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
 }
 
 :root {
-    --card-height: 20vh;
-    --card-width: calc(var(--card-height) / 1);
+  --card-height: 20vh;
+  --card-width: calc(var(--card-height) / 1);
 }
 
 .card {
-    background: #191c29;
-    width: var(--card-width);
-    height: var(--card-height);
-    padding: 3px;
-    position: relative;
-    border-radius: 6px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    display: flex;
-    font-size: 1.5em;
-    color: rgb(88 199 250 / 0%);
-    cursor: pointer;
-    font-family: cursive;
-    margin: 0 auto;
+  background: #191c29;
+  width: var(--card-width);
+  height: var(--card-height);
+  padding: 3px;
+  position: relative;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  font-size: 1.5em;
+  color: rgb(88 199 250 / 0%);
+  cursor: pointer;
+  font-family: cursive;
+  margin: 0 auto;
+  animation: rotateCard 5s linear infinite; /* Card rotation animation */
+}
+
+@keyframes rotateCard {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .card:hover {
-    color: rgb(88 199 250 / 100%);
-    transition: color 1s;
+  color: rgb(88 199 250 / 100%);
+  transition: color 1s;
 }
 
 .card:hover:before, .card:hover:after {
-    animation: none;
-    opacity: 0;
+  animation: none;
+  opacity: 0;
 }
 
 .card::before {
-    content: "";
-    width: 104%;
-    height: 102%;
-    border-radius: 8px;
-    background-image: linear-gradient(
-        var(--rotate),
-        #5ddcff, #3c67e3 43%, #4e00c2
-    );
-    position: absolute;
-    z-index: -1;
-    top: -1%;
-    left: -2%;
-    animation: spin 2.5s linear infinite;
+  content: "";
+  width: 104%;
+  height: 102%;
+  border-radius: 8px;
+  background-image: linear-gradient(
+      var(--rotate),
+      #5ddcff, #3c67e3 43%, #4e00c2
+  );
+  position: absolute;
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  animation: spin 2.5s linear infinite;
 }
 
 .card::after {
-    position: absolute;
-    content: "";
-    top: calc(var(--card-height) / 6);
-    left: 0;
-    right: 0;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
-    transform: scale(0.8);
-    filter: blur(calc(var(--card-height) / 6));
-    background-image: linear-gradient(
-        var(--rotate),
-        #5ddcff, #3c67e3 43%, #4e00c2
-    );
-    opacity: 1;
-    transition: opacity .5s;
-    animation: spin 2.5s linear infinite;
+  position: absolute;
+  content: "";
+  top: calc(var(--card-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(
+      var(--rotate),
+      #5ddcff, #3c67e3 43%, #4e00c2
+  );
+  opacity: 1;
+  transition: opacity .5s;
+  animation: spin 2.5s linear infinite;
 }
 
 @keyframes spin {
-    0% {
-        --rotate: 0deg;
-    }
-    100% {
-        --rotate: 360deg;
-    }
+  0% {
+      --rotate: 0deg;
+  }
+  100% {
+      --rotate: 360deg;
+  }
 }
 
 a {
-    color: #212534;
-    text-decoration: none;
-    font-family: sans-serif;
-    font-weight: bold;
-    margin-top: 2rem;
+  color: #212534;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-top: 2rem;
 }
-:root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
-  
-    color: black;
-    background-color: whitesmoke;
-  
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+
+/* Added mobile support styles */
+
+@media screen and (max-width: 768px) {
+  .card {
+      width: 80%;
   }
-  
-  body {
-    margin: 0;
-    display: flex;
-    place-items: center;
-    min-width: 320px;
-    min-height: 100vh;
+}
+
+@media screen and (max-width: 500px) {
+  .btn {
+      width: 12em;
+      height: 4em;
+      font-size: small;
   }
-  
-  .bouncing-blob {
-    width: 32vw;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    will-change: transform;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    transform-origin: left top;
+
+  .text {
+      font-size: small;
   }
-  
-  .bouncing-blob--blue {
-    background: #4783c7;
+
+  .btn:hover .text {
+      color: white;
   }
-  
-  .bouncing-blob--white {
-    background: #ffffff;
-    z-index: 2;
-    width: 15vw;
+
+  .btn:hover .sparkle {
+      fill: white;
+      transform: scale(1.2);
   }
-  
-  .bouncing-blob--purple {
-    background: #8c8ff1;
-  }
-  
-  .bouncing-blob--pink {
-    background: #e289cd50;
-  }
-  
-  .bouncing-blobs-container {
-    position: fixed;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .bouncing-blobs-glass {
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(140px);
-    -webkit-backdrop-filter: blur(140px);
-    pointer-events: none;
-  }
-  
-  .bouncing-blobs {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .hero h2 {
-    font-size: 70px;
-    max-width: 800px;
-    line-height: 1;
-    text-align: center;
-    font-weight: bold;
-    text-transform: capitalize;
-    margin-bottom: 20px;
-    color: #021123;
-  }
-  
-  .hero p {
-    font-size: 24px;
-    max-width: 500px;
-    text-align: center;
-    color: #021123;
-  }
-  
-  @media (max-width: 1200px) {
-    .bouncing-blobs-glass {
-      backdrop-filter: blur(120px);
-      -webkit-backdrop-filter: blur(120px);
-    }
-  }
-  
-  @media (max-width: 500px) {
-    .bouncing-blob {
-      width: 60vw;
-    }
-    .bouncing-blob--white {
-      width: 30vw;
-    }
-    .bouncing-blobs-glass {
-      backdrop-filter: blur(90px);
-      -webkit-backdrop-filter: blur(90px);
-    }
-  
-    .hero h2 {
-      font-size: 32px;
-    }
-  
-    .hero p {
-      font-size: 16px;
-      padding: 0 20px;
-    }
-  }
-  
-  .tutorial-link a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    font-size: 20px;
-    text-decoration: none;
-    font-weight: 600;
-    gap: 0 5px;
-    border: 2px solid;
-    border-radius: 5px;
-    padding: 4px 10px;
-  }
-  
-  .tutorial-link svg {
-    width: 30px;
-  }
-  
-  @media(max-width: 500px) {
-    .tutorial-link a {
-      font-size: 14px;
-      padding: 2px 4px;
-    }
-    .tutorial-link svg {
-      width: 15px;
-    }
-  }
+}
